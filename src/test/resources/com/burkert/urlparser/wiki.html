@@ -1,0 +1,637 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Quadtree - Wikipedia, the free encyclopedia</title>
+    <script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+    <script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Quadtree","wgTitle":"Quadtree","wgCurRevisionId":731458964,"wgRevisionId":731458964,"wgArticleId":577097,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Wikipedia references cleanup from April 2015","All articles needing references cleanup","Articles covered by WikiProject Wikify from April 2015","All articles covered by WikiProject Wikify","All articles with unsourced statements","Articles with unsourced statements from June 2015","CS1 maint: Multiple names: authors list","Trees (data structures)","Database index techniques","Geometric data structures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Quadtree","wgRelevantArticleId":577097,"wgRequestId":"V540JgpAAD4AAQ2nSZgAAACH","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","usePageImages":true,"usePageDescriptions":true},"wgPreferredVariant":"en","wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgCentralNoticeCookiesToDelete":[],"wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgWikibaseItemId":"Q934791","wgCentralAuthMobileDomain":false,"wgVisualEditorToolbarScrollOffset":0});mw.loader.implement("user.options",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery, require, module ) {
+        mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+    });mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","ext.centralauth.centralautologin","mmv.head","ext.visualEditor.desktopArticleTarget.init","ext.uls.init","ext.uls.interface","ext.quicksurveys.init","mw.MediaWikiPlayer.loader","mw.PopUpMediaTransform","skins.vector.js"]);mw.loader.state({"ext.cite.styles":"ready","ext.tmh.thumbnail.styles":"ready","ext.uls.nojs":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.legacy.shared":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready","wikibase.client.init":"ready","site.styles":"ready","noscript":"ready","user.cssprefs":"ready"});});</script>
+    <link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cext.gadget.DRN-wizard%2CReferenceTooltips%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cswitcher%2Cteahouse%7Cext.tmh.thumbnail.styles%7Cext.uls.nojs%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+    <meta name="ResourceLoaderDynamicStyles" content=""/>
+    <link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+    <script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+    <meta name="generator" content="MediaWiki 1.28.0-wmf.12"/>
+    <meta name="referrer" content="origin-when-cross-origin"/>
+    <link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Quadtree"/>
+    <link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Quadtree&amp;action=edit"/>
+    <link rel="edit" title="Edit this page" href="/w/index.php?title=Quadtree&amp;action=edit"/>
+    <link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+    <link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+    <link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+    <link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+    <link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+    <link rel="canonical" href="https://en.wikipedia.org/wiki/Quadtree"/>
+    <link rel="dns-prefetch" href="//login.wikimedia.org"/>
+    <link rel="dns-prefetch" href="//meta.wikimedia.org" />
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Quadtree rootpage-Quadtree skin-vector action-view">		<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+    <a id="top"></a>
+
+    <div id="siteNotice"><!-- CentralNotice --></div>
+    <div class="mw-indicators">
+    </div>
+    <h1 id="firstHeading" class="firstHeading" lang="en">Quadtree</h1>
+    <div id="bodyContent" class="mw-body-content">
+        <div id="siteSub">From Wikipedia, the free encyclopedia</div>
+        <div id="contentSub"></div>
+        <div id="jump-to-nav" class="mw-jump">
+            Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+        </div>
+        <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="metadata plainlinks ambox ambox-style ambox-citation_style" role="presentation">
+            <tr>
+                <td class="mbox-image">
+                    <div style="width:52px"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/40px-Edit-clear.svg.png" width="40" height="40" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/60px-Edit-clear.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/80px-Edit-clear.svg.png 2x" data-file-width="48" data-file-height="48" /></div>
+                </td>
+                <td class="mbox-text"><span class="mbox-text-span">This article <b>has an unclear citation style</b>. <span class="hide-when-compact">The references used may be made clearer with a different or consistent style of <a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation</a>, <a href="/wiki/Help:Footnotes" title="Help:Footnotes">footnoting</a>, or <a href="/wiki/Wikipedia:External_links" title="Wikipedia:External links">external linking</a>.</span> <small><i>(April 2015)</i></small> <small class="hide-when-compact"><i>(<a href="/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a>)</i></small></span></td>
+            </tr>
+        </table>
+            <div class="thumb tright">
+                <div class="thumbinner" style="width:302px;"><a href="/wiki/File:Point_quadtree.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Point_quadtree.svg/300px-Point_quadtree.svg.png" width="300" height="300" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Point_quadtree.svg/450px-Point_quadtree.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Point_quadtree.svg/600px-Point_quadtree.svg.png 2x" data-file-width="500" data-file-height="500" /></a>
+                    <div class="thumbcaption">
+                        <div class="magnify"><a href="/wiki/File:Point_quadtree.svg" class="internal" title="Enlarge"></a></div>
+                        A point quadtree with point data. Bucket capacity 1.</div>
+                </div>
+            </div>
+            <div class="thumb tright">
+                <div class="thumbinner" style="width:302px;"><a href="/wiki/File:Quadtree_compression_of_an_image.gif" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Quadtree_compression_of_an_image.gif/300px-Quadtree_compression_of_an_image.gif" width="300" height="150" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Quadtree_compression_of_an_image.gif/450px-Quadtree_compression_of_an_image.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Quadtree_compression_of_an_image.gif/600px-Quadtree_compression_of_an_image.gif 2x" data-file-width="1050" data-file-height="525" /></a>
+                    <div class="thumbcaption">
+                        <div class="magnify"><a href="/wiki/File:Quadtree_compression_of_an_image.gif" class="internal" title="Enlarge"></a></div>
+                        Quadtree compression of an image step by step</div>
+                </div>
+            </div>
+            <p>A <b>quadtree</b> is a <a href="/wiki/Tree_data_structure" class="mw-redirect" title="Tree data structure">tree data structure</a> in which each internal node has exactly four children. Quadtrees are most often used to partition a two-dimensional space by recursively subdividing it into four quadrants or regions. The regions may be square or rectangular, or may have arbitrary shapes. This data structure was named a quadtree by <a href="/wiki/Raphael_Finkel" title="Raphael Finkel">Raphael Finkel</a> and <a href="/wiki/J.L._Bentley" class="mw-redirect" title="J.L. Bentley">J.L. Bentley</a> in 1974. A similar partitioning is also known as a <i>Q-tree</i>. All forms of quadtrees share some common features:</p>
+            <ul>
+                <li>They decompose space into adaptable cells</li>
+                <li>Each cell (or bucket) has a maximum capacity. When maximum capacity is reached, the bucket splits</li>
+                <li>The tree directory follows the spatial decomposition of the quadtree.</li>
+            </ul>
+            <p></p>
+            <div id="toc" class="toc">
+                <div id="toctitle">
+                    <h2>Contents</h2>
+                </div>
+                <ul>
+                    <li class="toclevel-1 tocsection-1"><a href="#Types"><span class="tocnumber">1</span> <span class="toctext">Types</span></a>
+                        <ul>
+                            <li class="toclevel-2 tocsection-2"><a href="#The_region_quadtree"><span class="tocnumber">1.1</span> <span class="toctext">The region quadtree</span></a></li>
+                            <li class="toclevel-2 tocsection-3"><a href="#Point_quadtree"><span class="tocnumber">1.2</span> <span class="toctext">Point quadtree</span></a>
+                                <ul>
+                                    <li class="toclevel-3 tocsection-4"><a href="#Node_structure_for_a_point_quadtree"><span class="tocnumber">1.2.1</span> <span class="toctext">Node structure for a point quadtree</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="toclevel-2 tocsection-5"><a href="#Edge_quadtree"><span class="tocnumber">1.3</span> <span class="toctext">Edge quadtree</span></a></li>
+                            <li class="toclevel-2 tocsection-6"><a href="#Polygonal_map_quadtree"><span class="tocnumber">1.4</span> <span class="toctext">Polygonal map quadtree</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="toclevel-1 tocsection-7"><a href="#Some_common_uses_of_quadtrees"><span class="tocnumber">2</span> <span class="toctext">Some common uses of quadtrees</span></a></li>
+                    <li class="toclevel-1 tocsection-8"><a href="#Pseudo_code"><span class="tocnumber">3</span> <span class="toctext">Pseudo code</span></a>
+                        <ul>
+                            <li class="toclevel-2 tocsection-9"><a href="#Prerequisites"><span class="tocnumber">3.1</span> <span class="toctext">Prerequisites</span></a></li>
+                            <li class="toclevel-2 tocsection-10"><a href="#QuadTree_class"><span class="tocnumber">3.2</span> <span class="toctext">QuadTree class</span></a></li>
+                            <li class="toclevel-2 tocsection-11"><a href="#Insertion"><span class="tocnumber">3.3</span> <span class="toctext">Insertion</span></a></li>
+                            <li class="toclevel-2 tocsection-12"><a href="#Query_range"><span class="tocnumber">3.4</span> <span class="toctext">Query range</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="toclevel-1 tocsection-13"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+                    <li class="toclevel-1 tocsection-14"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a>
+                        <ul>
+                            <li class="toclevel-2 tocsection-15"><a href="#Notes"><span class="tocnumber">5.1</span> <span class="toctext">Notes</span></a></li>
+                            <li class="toclevel-2 tocsection-16"><a href="#General_references"><span class="tocnumber">5.2</span> <span class="toctext">General references</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="toclevel-1 tocsection-17"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+                </ul>
+            </div>
+            <p></p>
+            <h2><span class="mw-headline" id="Types">Types</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=1" title="Edit section: Types">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+            <p>Quadtrees may be classified according to the type of data they represent, including areas, points, lines and curves. Quadtrees may also be classified by whether the shape of the tree is independent of the order data is processed. Some common types of quadtrees are:</p>
+            <h3><span class="mw-headline" id="The_region_quadtree">The region quadtree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=2" title="Edit section: The region quadtree">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+            <p>The region quadtree represents a partition of space in two dimensions by decomposing the region into four equal quadrants, subquadrants, and so on with each leaf node containing data corresponding to a specific subregion. Each node in the tree either has exactly four children, or has no children (a leaf node). The region quadtree is a type of <a href="/wiki/Trie" title="Trie">trie</a>.</p>
+            <p>A region quadtree with a depth of n may be used to represent an image consisting of 2<sup>n</sup> × 2<sup>n</sup> pixels, where each pixel value is 0 or 1. The root node represents the entire image region. If the pixels in any region are not entirely 0s or 1s, it is subdivided. In this application, each leaf node represents a block of pixels that are all 0s or all 1s.</p>
+            <p>A region quadtree may also be used as a variable resolution representation of a data field. For example, the temperatures in an area may be stored as a quadtree, with each leaf node storing the average temperature over the subregion it represents.</p>
+            <p>If a region quadtree is used to represent a set of point data (such as the latitude and longitude of a set of cities), regions are subdivided until each leaf contains at most a single point.</p>
+            <h3><span class="mw-headline" id="Point_quadtree">Point quadtree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=3" title="Edit section: Point quadtree">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+            <p>The point quadtree is an adaptation of a <a href="/wiki/Binary_tree" title="Binary tree">binary tree</a> used to represent two-dimensional point data. It shares the features of all quadtrees but is a true tree as the center of a subdivision is always on a point. The tree shape depends on the order in which data is processed. It is often very efficient in comparing two-dimensional, ordered data points, usually operating in <a href="/wiki/Big_O_notation" title="Big O notation">O(log n)</a> time.</p>
+            <h4><span class="mw-headline" id="Node_structure_for_a_point_quadtree">Node structure for a point quadtree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=4" title="Edit section: Node structure for a point quadtree">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+            <p>A node of a point quadtree is similar to a node of a <a href="/wiki/Binary_tree" title="Binary tree">binary tree</a>, with the major difference being that it has four pointers (one for each quadrant) instead of two ("left" and "right") as in an ordinary binary tree. Also a key is usually decomposed into two parts, referring to x and y coordinates. Therefore a node contains the following information:</p>
+            <ul>
+                <li>four pointers: quad[‘NW’], quad[‘NE’], quad[‘SW’], and quad[‘SE’]</li>
+                <li>point; which in turn contains:
+                    <ul>
+                        <li>key; usually expressed as x, y coordinates</li>
+                        <li>value; for example a name</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3><span class="mw-headline" id="Edge_quadtree">Edge quadtree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=5" title="Edit section: Edge quadtree">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+            <p>Edge quadtrees are specifically used to store lines rather than points. Curves are approximated by subdividing cells to a very fine resolution. This can result in extremely unbalanced trees which may defeat the purpose of indexing.</p>
+            <h3><span class="mw-headline" id="Polygonal_map_quadtree">Polygonal map quadtree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=6" title="Edit section: Polygonal map quadtree">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+            <p>The polygonal map quadtree (or PM Quadtree) is a variation of quadtree which is used to store collections of polygons that may be degenerate (meaning that they have isolated vertices or edges).<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> There are three main classes of PMQuadtrees, which vary depending on what information they store within each black node. PM3 quadtrees can store any amount of non-intersecting edges and at most one point. PM2 quadtrees are the same as PM3 quadtrees except that all edges must share the same end point. Finally PM1 quadtrees are similar to PM2, but black nodes can contain a point and its edges or just a set of edges that share a point, but you cannot have a point and a set of edges that do not contain the point.</p>
+            <h2><span class="mw-headline" id="Some_common_uses_of_quadtrees">Some common uses of quadtrees</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=7" title="Edit section: Some common uses of quadtrees">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+            <ul>
+                <li>Image representation<br />
+                    <a href="/wiki/File:Quad_tree_bitmap.svg" class="image" title="Bitmap and its compressed quadtree representation"><img alt="Bitmap and its compressed quadtree representation" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Quad_tree_bitmap.svg/380px-Quad_tree_bitmap.svg.png" width="380" height="156" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Quad_tree_bitmap.svg/570px-Quad_tree_bitmap.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Quad_tree_bitmap.svg/760px-Quad_tree_bitmap.svg.png 2x" data-file-width="680" data-file-height="280" /></a></li>
+                <li><a href="/wiki/Spatial_index" class="mw-redirect" title="Spatial index">Spatial indexing</a></li>
+                <li>Efficient <a href="/wiki/Collision_detection" title="Collision detection">collision detection</a> in two dimensions</li>
+                <li><a href="/wiki/Hidden_face_removal#Viewing_frustum_culling" class="mw-redirect" title="Hidden face removal">View frustum culling</a> of terrain data</li>
+                <li>Storing sparse data, such as a formatting information for a <a href="/wiki/Spreadsheet" title="Spreadsheet">spreadsheet</a><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup> or for some matrix calculations<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">[<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (June 2015)">citation needed</span></a></i>]</sup></li>
+                <li>Solution of multidimensional <a href="/wiki/Field_(physics)" title="Field (physics)">fields</a> (<a href="/wiki/Computational_fluid_dynamics" title="Computational fluid dynamics">computational fluid dynamics</a>, <a href="/wiki/Electromagnetism" title="Electromagnetism">electromagnetism</a>)</li>
+                <li><a href="/wiki/Conway%27s_Game_of_Life" title="Conway's Game of Life">Conway's Game of Life</a> simulation program.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup></li>
+                <li><a href="/wiki/State_estimation" class="mw-redirect" title="State estimation">State estimation</a><sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup></li>
+                <li>Quadtrees are also used in the area of fractal image analysis</li>
+                <li><a href="/wiki/Maximum_disjoint_set#Fat_objects_with_arbitrary_sizes:_PTAS" title="Maximum disjoint set">Maximum disjoint sets</a></li>
+            </ul>
+            <p>Quadtrees are the two-dimensional analog of <a href="/wiki/Octree" title="Octree">octrees</a>.</p>
+            <h2><span class="mw-headline" id="Pseudo_code">Pseudo code</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=8" title="Edit section: Pseudo code">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+            <p>The following pseudo code shows one means of implementing a quadtree which handles only points. There are other approaches available.</p>
+            <h3><span class="mw-headline" id="Prerequisites">Prerequisites</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=9" title="Edit section: Prerequisites">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+            <p>It is assumed these structures are used.</p>
+            <pre>
+<i>// Simple coordinate object to represent points and vectors</i>
+<b>struct</b> XY
+{
+  <b>float</b> x;
+  <b>float</b> y;
+
+  <b>function</b> __construct(<i>float</i> _x, <i>float</i> _y) {...}
+}
+
+<i>// Axis-aligned bounding box with half dimension and center</i>
+<b>struct</b> AABB
+{
+  <b>XY</b> center;
+  <b>float</b> halfDimension;
+
+  <b>function</b> __construct(<b>XY</b> center, <b>float</b> halfDimension) {...}
+  <b>function</b> containsPoint(<b>XY</b> point) {...}
+  <b>function</b> intersectsAABB(<b>AABB</b> other) {...}
+}
+</pre>
+            <h3><span class="mw-headline" id="QuadTree_class">QuadTree class</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=10" title="Edit section: QuadTree class">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+            <p>This class represents both one quad tree and the node where it is rooted.</p>
+            <pre>
+<b>class</b> QuadTree
+{
+  <i>// Arbitrary constant to indicate how many elements can be stored in this quad tree node</i>
+  <b>constant int</b> QT_NODE_CAPACITY = 4;
+
+  <i>// Axis-aligned bounding box stored as a center with half-dimensions</i>
+  // to represent the boundaries of this quad tree
+  <b>AABB</b> boundary;
+
+  <i>// Points in this quad tree node</i>
+  <i>Array of XY [size = QT_NODE_CAPACITY]</i> points;
+
+  <i>// Children</i>
+  <b>QuadTree*</b> northWest;
+  <b>QuadTree*</b> northEast;
+  <b>QuadTree*</b> southWest;
+  <b>QuadTree*</b> southEast;
+
+  <i>// Methods</i>
+  <b>function</b> __construct(<i>AABB</i> _boundary) {...}
+  <b>function</b> insert(<i>XY</i> p) {...}
+  <b>function</b> subdivide() {...} <i>// create four children that fully divide this quad into four quads of equal area</i>
+  <b>function</b> queryRange(<i>AABB</i> range) {...}
+}
+</pre>
+            <h3><span class="mw-headline" id="Insertion">Insertion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=11" title="Edit section: Insertion">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+            <p>The following method inserts a point into the appropriate quad of a quadtree, splitting if necessary.</p>
+            <pre>
+<b>class</b> QuadTree
+{
+  ...
+
+  <i>// Insert a point into the QuadTree</i>
+  <b>function</b> insert(<i>XY</i> p)
+  {
+    <i>// Ignore objects that do not belong in this quad tree</i>
+    <b>if</b> (!boundary.containsPoint(p))
+      <b>return</b> <i>false</i>; <i>// object cannot be added</i>
+
+    <i>// If there is space in this quad tree, add the object here</i>
+    <b>if</b> (points.size &lt; QT_NODE_CAPACITY)
+    {
+      points.append(p);
+      <b>return</b> <i>true</i>;
+    }
+
+    <i>// Otherwise, subdivide and then add the point to whichever node will accept it</i>
+    <b>if</b> (northWest == <i>null</i>)
+      subdivide();
+
+    <b>if</b> (northWest-&gt;insert(p)) <b>return</b> <i>true</i>;
+    <b>if</b> (northEast-&gt;insert(p)) <b>return</b> <i>true</i>;
+    <b>if</b> (southWest-&gt;insert(p)) <b>return</b> <i>true</i>;
+    <b>if</b> (southEast-&gt;insert(p)) <b>return</b> <i>true</i>;
+
+    <i>// Otherwise, the point cannot be inserted for some unknown reason (this should never happen)</i>
+    <b>return</b> <i>false</i>;
+  }
+}
+</pre>
+            <h3><span class="mw-headline" id="Query_range">Query range</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=12" title="Edit section: Query range">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+            <p>The following method finds all points contained within a range.</p>
+            <pre>
+<b>class</b> QuadTree
+{
+  ...
+
+  <i>// Find all points that appear within a range</i>
+  <b>function</b> queryRange(<i>AABB</i> range)
+  {
+    <i>// Prepare an array of results</i>
+    <i>Array of XY</i> pointsInRange;
+
+    <i>// Automatically abort if the range does not intersect this quad</i>
+    <b>if</b> (!boundary.intersectsAABB(range))
+      <b>return</b> pointsInRange; <i>// empty list</i>
+
+    <i>// Check objects at this quad level</i>
+    <b>for</b> (<b>int</b> p = 0; p &lt; points.size; p++)
+    {
+      <b>if</b> (range.containsPoint(points[p]))
+        pointsInRange.append(points[p]);
+    }
+
+    <i>// Terminate here, if there are no children</i>
+    <b>if</b> (northWest == <i>null</i>)
+      <b>return</b> pointsInRange;
+
+    <i>// Otherwise, add the points from the children</i>
+    pointsInRange.appendArray(northWest-&gt;queryRange(range));
+    pointsInRange.appendArray(northEast-&gt;queryRange(range));
+    pointsInRange.appendArray(southWest-&gt;queryRange(range));
+    pointsInRange.appendArray(southEast-&gt;queryRange(range));
+
+    <b>return</b> pointsInRange;
+  }
+}
+</pre>
+            <h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=13" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+            <ul>
+                <li><a href="/wiki/Binary_space_partitioning" title="Binary space partitioning">Binary space partitioning</a></li>
+                <li><a href="/wiki/Kd-tree" class="mw-redirect" title="Kd-tree">Kd-tree</a></li>
+                <li><a href="/wiki/Octree" title="Octree">Octree</a></li>
+                <li><a href="/wiki/R-tree" title="R-tree">R-tree</a></li>
+                <li><a href="/wiki/UB-tree" title="UB-tree">UB-tree</a></li>
+                <li><a href="/wiki/Spatial_database" title="Spatial database">Spatial database</a></li>
+                <li><a href="/wiki/Subpaving" title="Subpaving">Subpaving</a></li>
+                <li><a href="/wiki/Z-order_curve" title="Z-order curve">Z-order curve</a></li>
+            </ul>
+            <h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=14" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+            <h3><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=15" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+            <div class="reflist" style="list-style-type: decimal;">
+                <ol class="references">
+                    <li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><a href="/wiki/Hanan_Samet" title="Hanan Samet">Hanan Samet</a> and Robert Webber. "Storing a Collection of Polygons Using Quadtrees". <i>ACM Transactions on Graphics</i> July 1985: 182-222. <i>InfoLAB</i>. Web. 23 March 2012</span></li>
+                    <li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><cite class="citation book">Sestoft, Peter (2014). <i>Spreadsheet Implementation Technology: Basics and Extensions</i>. The MIT Press. pp.&#160;60–63. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/9780262526647" title="Special:BookSources/9780262526647">9780262526647</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQuadtree&amp;rft.aufirst=Peter&amp;rft.aulast=Sestoft&amp;rft.btitle=Spreadsheet+Implementation+Technology%3A+Basics+and+Extensions&amp;rft.date=2014&amp;rft.genre=book&amp;rft.isbn=9780262526647&amp;rft.pages=60-63&amp;rft.pub=The+MIT+Press&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+                    <li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><cite class="citation web">Tomas G. Rokicki (2006-04-01). <a rel="nofollow" class="external text" href="http://www.ddj.com/hpc-high-performance-computing/184406478">"An Algorithm for Compressing Space and Time"</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2009-05-20</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQuadtree&amp;rft.au=Tomas+G.+Rokicki&amp;rft.btitle=An+Algorithm+for+Compressing+Space+and+Time&amp;rft.date=2006-04-01&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.ddj.com%2Fhpc-high-performance-computing%2F184406478&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+                    <li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text">Henning Eberhardt, Vesa Klumpp, Uwe D. Hanebeck, <i>Density Trees for Efficient Nonlinear State Estimation</i>, Proceedings of the 13th International Conference on Information Fusion, Edinburgh, United Kingdom, July, 2010.</span></li>
+                </ol>
+            </div>
+            <h3><span class="mw-headline" id="General_references">General references</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=16" title="Edit section: General references">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+            <ol>
+                <li><cite class="citation journal"><a href="/wiki/Raphael_Finkel" title="Raphael Finkel">Raphael Finkel</a> and <a href="/wiki/J.L._Bentley" class="mw-redirect" title="J.L. Bentley">J.L. Bentley</a> (1974). "Quad Trees: A Data Structure for Retrieval on Composite Keys". <i>Acta Informatica</i> <b>4</b> (1): 1–9. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//dx.doi.org/10.1007%2FBF00288933">10.1007/BF00288933</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQuadtree&amp;rft.atitle=Quad+Trees%3A+A+Data+Structure+for+Retrieval+on+Composite+Keys&amp;rft.au=Raphael+Finkel+and+J.L.+Bentley&amp;rft.date=1974&amp;rft.genre=article&amp;rft_id=info%3Adoi%2F10.1007%2FBF00288933&amp;rft.issue=1&amp;rft.jtitle=Acta+Informatica&amp;rft.pages=1-9&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=4" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+                <li><cite class="citation book"><a href="/w/index.php?title=Mark_de_Berg&amp;action=edit&amp;redlink=1" class="new" title="Mark de Berg (page does not exist)">Mark de Berg</a>, <a href="/w/index.php?title=Marc_van_Kreveld&amp;action=edit&amp;redlink=1" class="new" title="Marc van Kreveld (page does not exist)">Marc van Kreveld</a>, <a href="/wiki/Mark_Overmars" title="Mark Overmars">Mark Overmars</a>, and <a href="/w/index.php?title=Otfried_Schwarzkopf&amp;action=edit&amp;redlink=1" class="new" title="Otfried Schwarzkopf (page does not exist)">Otfried Schwarzkopf</a> (2000). <i>Computational Geometry</i> (2nd revised ed.). <a href="/wiki/Springer-Verlag" class="mw-redirect" title="Springer-Verlag">Springer-Verlag</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/3-540-65620-0" title="Special:BookSources/3-540-65620-0">3-540-65620-0</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQuadtree&amp;rft.au=Mark+de+Berg%2C+Marc+van+Kreveld%2C+Mark+Overmars%2C+and+Otfried+Schwarzkopf&amp;rft.btitle=Computational+Geometry&amp;rft.date=2000&amp;rft.edition=2nd+revised&amp;rft.genre=book&amp;rft.isbn=3-540-65620-0&amp;rft.pub=Springer-Verlag&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span> <span class="citation-comment" style="display:none; color:#33aa33">CS1 maint: Multiple names: authors list (<a href="/wiki/Category:CS1_maint:_Multiple_names:_authors_list" title="Category:CS1 maint: Multiple names: authors list">link</a>)</span> Chapter 14: Quadtrees: pp.&#160;291–306.</li>
+                <li><cite class="citation web"><a href="/wiki/Hanan_Samet" title="Hanan Samet">Samet, Hanan</a>; Webber, Robert (July 1985). <a rel="nofollow" class="external text" href="http://infolab.usc.edu/csci585/Spring2008/den_ar/p182-samet.pdf">"Storing a Collection of Polygons Using Quadtrees"</a> <span style="font-size:85%;">(PDF)</span><span class="reference-accessdate">. Retrieved <span class="nowrap">23 March</span> 2012</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQuadtree&amp;rft.aufirst=Hanan&amp;rft.aulast=Samet&amp;rft.au=Webber%2C+Robert&amp;rft.btitle=Storing+a+Collection+of+Polygons+Using+Quadtrees&amp;rft.date=1985-07&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Finfolab.usc.edu%2Fcsci585%2FSpring2008%2Fden_ar%2Fp182-samet.pdf&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+            </ol>
+            <h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Quadtree&amp;action=edit&amp;section=17" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+            <ul>
+                <li><a rel="nofollow" class="external text" href="http://www.cs.berkeley.edu/~demmel/cs267/lecture26/lecture26.html">A discussion of the Quadtree and an application</a></li>
+                <li><a rel="nofollow" class="external text" href="http://web.archive.org/web/20120204170335/http://homepages.ge.ucl.ac.uk/~mhaklay/java.htm">Considerable discussion and demonstrations of Spatial Indexing</a></li>
+                <li><a rel="nofollow" class="external text" href="https://github.com/varunpant/Quadtree/">Java Implementation</a></li>
+                <li><a rel="nofollow" class="external text" href="http://javaprogrammernotes.blogspot.ru/2015/01/why-algorithms-matter-quad-tree-example.html">Java tutorial</a></li>
+                <li><a rel="nofollow" class="external text" href="https://sourceforge.net/projects/quadtreedemo/">C++ Implementation of a Quadtree used for spatial indexing of triangles</a></li>
+                <li><a rel="nofollow" class="external text" href="http://robots.thoughtbot.com/how-to-handle-large-amounts-of-data-on-maps/">Objective-C implementation of QuadTree used for GPS clustering</a></li>
+                <li><a rel="nofollow" class="external text" href="http://squarelanguage.sourceforge.net/">SquareLanguage</a></li>
+                <li><a rel="nofollow" class="external text" href="http://jsfiddle.net/sombra2eternity/vNS7m/">Working demonstration of Quadtree algorithm in Javascript</a></li>
+                <li><a rel="nofollow" class="external text" href="https://github.com/sombra2eternity/quadtree">MIT licensed Quadtree library in Javascript</a></li>
+            </ul>
+            <div role="navigation" class="navbox" aria-labelledby="Tree_data_structures" style="padding:3px">
+                <table class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+                    <tr>
+                        <th scope="col" class="navbox-title" colspan="2">
+                            <div class="plainlinks hlist navbar mini">
+                                <ul>
+                                    <li class="nv-view"><a href="/wiki/Template:CS_trees" title="Template:CS trees"><abbr title="View this template" style=";;background:none transparent;border:none;">v</abbr></a></li>
+                                    <li class="nv-talk"><a href="/wiki/Template_talk:CS_trees" title="Template talk:CS trees"><abbr title="Discuss this template" style=";;background:none transparent;border:none;">t</abbr></a></li>
+                                    <li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:CS_trees&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;">e</abbr></a></li>
+                                </ul>
+                            </div>
+                            <div id="Tree_data_structures" style="font-size:114%"><a href="/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree data structures</a></div>
+                        </th>
+                    </tr>
+                    <tr style="height:2px">
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="navbox-group"><a href="/wiki/Search_tree" title="Search tree">Search trees</a><br />
+                            (<a href="/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">dynamic sets</a>/<a href="/wiki/Associative_array" title="Associative array">associative arrays</a>)</th>
+                        <td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em">
+                                <ul>
+                                    <li><a href="/wiki/2%E2%80%933_tree" title="2–3 tree">2–3</a></li>
+                                    <li><a href="/wiki/2%E2%80%933%E2%80%934_tree" title="2–3–4 tree">2–3–4</a></li>
+                                    <li><a href="/wiki/AA_tree" title="AA tree">AA</a></li>
+                                    <li><a href="/wiki/(a,b)-tree" title="(a,b)-tree">(a,b)</a></li>
+                                    <li><a href="/wiki/AVL_tree" title="AVL tree">AVL</a></li>
+                                    <li><a href="/wiki/B-tree" title="B-tree">B</a></li>
+                                    <li><a href="/wiki/B%2B_tree" title="B+ tree">B+</a></li>
+                                    <li><a href="/wiki/B*-tree" class="mw-redirect" title="B*-tree">B*</a></li>
+                                    <li><a href="/wiki/Bx-tree" title="Bx-tree">B<sup>x</sup></a></li>
+                                    <li>(<a href="/wiki/Optimal_binary_search_tree" title="Optimal binary search tree">Optimal</a>)&#160;<a href="/wiki/Binary_search_tree" title="Binary search tree">Binary search</a></li>
+                                    <li><a href="/wiki/Dancing_tree" title="Dancing tree">Dancing</a></li>
+                                    <li><a href="/wiki/HTree" title="HTree">HTree</a></li>
+                                    <li><a href="/wiki/Interval_tree" title="Interval tree">Interval</a></li>
+                                    <li><a href="/wiki/Order_statistic_tree" title="Order statistic tree">Order statistic</a></li>
+                                    <li>(<a href="/wiki/Left-leaning_red%E2%80%93black_tree" title="Left-leaning red–black tree">Left-leaning</a>)&#160;<a href="/wiki/Red%E2%80%93black_tree" title="Red–black tree">Red-black</a></li>
+                                    <li><a href="/wiki/Scapegoat_tree" title="Scapegoat tree">Scapegoat</a></li>
+                                    <li><a href="/wiki/Splay_tree" title="Splay tree">Splay</a></li>
+                                    <li><a href="/wiki/T-tree" title="T-tree">T</a></li>
+                                    <li><a href="/wiki/Treap" title="Treap">Treap</a></li>
+                                    <li><a href="/wiki/UB-tree" title="UB-tree">UB</a></li>
+                                    <li><a href="/wiki/Weight-balanced_tree" title="Weight-balanced tree">Weight-balanced</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height:2px">
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="navbox-group"><a href="/wiki/Heap_(data_structure)" title="Heap (data structure)">Heaps</a></th>
+                        <td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em">
+                                <ul>
+                                    <li><a href="/wiki/Binary_heap" title="Binary heap">Binary</a></li>
+                                    <li><a href="/wiki/Binomial_heap" title="Binomial heap">Binomial</a></li>
+                                    <li><a href="/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a></li>
+                                    <li><a href="/wiki/Leftist_tree" title="Leftist tree">Leftist</a></li>
+                                    <li><a href="/wiki/Pairing_heap" title="Pairing heap">Pairing</a></li>
+                                    <li><a href="/wiki/Skew_heap" title="Skew heap">Skew</a></li>
+                                    <li><a href="/wiki/Van_Emde_Boas_tree" title="Van Emde Boas tree">Van Emde Boas</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height:2px">
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="navbox-group"><a href="/wiki/Trie" title="Trie">Tries</a></th>
+                        <td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em">
+                                <ul>
+                                    <li><a href="/wiki/Ctrie" title="Ctrie">Ctrie</a></li>
+                                    <li><a href="/wiki/C-trie" title="C-trie">C-trie (compressed ADT)</a></li>
+                                    <li><a href="/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash</a></li>
+                                    <li><a href="/wiki/Radix_tree" title="Radix tree">Radix</a></li>
+                                    <li><a href="/wiki/Suffix_tree" title="Suffix tree">Suffix</a></li>
+                                    <li><a href="/wiki/Ternary_search_tree" title="Ternary search tree">Ternary search</a></li>
+                                    <li><a href="/wiki/X-fast_trie" title="X-fast trie">X-fast</a></li>
+                                    <li><a href="/wiki/Y-fast_trie" title="Y-fast trie">Y-fast</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height:2px">
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="navbox-group"><a href="/wiki/Spatial_index" class="mw-redirect" title="Spatial index">Spatial</a> data partitioning trees</th>
+                        <td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em">
+                                <ul>
+                                    <li><a href="/wiki/BK-tree" title="BK-tree">BK</a></li>
+                                    <li><a href="/wiki/BSP_tree" class="mw-redirect" title="BSP tree">BSP</a></li>
+                                    <li><a href="/wiki/Cartesian_tree" title="Cartesian tree">Cartesian</a></li>
+                                    <li><a href="/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert R</a></li>
+                                    <li><a href="/wiki/K-d_tree" title="K-d tree"><i>k</i>-d</a> (<a href="/wiki/Implicit_k-d_tree" title="Implicit k-d tree">implicit <i>k</i>-d</a>)</li>
+                                    <li><a href="/wiki/M-tree" title="M-tree">M</a></li>
+                                    <li><a href="/wiki/Metric_tree" title="Metric tree">Metric</a></li>
+                                    <li><a href="/wiki/MVP_tree" class="mw-redirect" title="MVP tree">MVP</a></li>
+                                    <li><a href="/wiki/Octree" title="Octree">Octree</a></li>
+                                    <li><a href="/wiki/Priority_R-tree" title="Priority R-tree">Priority R</a></li>
+                                    <li><strong class="selflink">Quad</strong></li>
+                                    <li><a href="/wiki/R-tree" title="R-tree">R</a></li>
+                                    <li><a href="/wiki/R%2B_tree" title="R+ tree">R+</a></li>
+                                    <li><a href="/wiki/R*_tree" title="R* tree">R*</a></li>
+                                    <li><a href="/wiki/Segment_tree" title="Segment tree">Segment</a></li>
+                                    <li><a href="/wiki/Vantage-point_tree" title="Vantage-point tree">VP</a></li>
+                                    <li><a href="/wiki/X-tree" title="X-tree">X</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height:2px">
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="navbox-group">Other trees</th>
+                        <td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em">
+                                <ul>
+                                    <li><a href="/wiki/Cover_tree" title="Cover tree">Cover</a></li>
+                                    <li><a href="/wiki/Exponential_tree" title="Exponential tree">Exponential</a></li>
+                                    <li><a href="/wiki/Fenwick_tree" title="Fenwick tree">Fenwick</a></li>
+                                    <li><a href="/wiki/Finger_tree" title="Finger tree">Finger</a></li>
+                                    <li><a href="/wiki/Fractal_tree_index" title="Fractal tree index">Fractal tree index</a></li>
+                                    <li><a href="/wiki/Fusion_tree" title="Fusion tree">Fusion</a></li>
+                                    <li><a href="/wiki/Hash_calendar" title="Hash calendar">Hash calendar</a></li>
+                                    <li><a href="/wiki/IDistance" title="IDistance">iDistance</a></li>
+                                    <li><a href="/wiki/K-ary_tree" title="K-ary tree">K-ary</a></li>
+                                    <li><a href="/wiki/Left-child_right-sibling_binary_tree" title="Left-child right-sibling binary tree">Left-child right-sibling</a></li>
+                                    <li><a href="/wiki/Link/cut_tree" title="Link/cut tree">Link/cut</a></li>
+                                    <li><a href="/wiki/Log-structured_merge-tree" title="Log-structured merge-tree">Log-structured merge</a></li>
+                                    <li><a href="/wiki/Merkle_tree" title="Merkle tree">Merkle</a></li>
+                                    <li><a href="/wiki/PQ_tree" title="PQ tree">PQ</a></li>
+                                    <li><a href="/wiki/Range_tree" title="Range tree">Range</a></li>
+                                    <li><a href="/wiki/SPQR_tree" title="SPQR tree">SPQR</a></li>
+                                    <li><a href="/wiki/Top_tree" title="Top tree">Top</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <!--
+            NewPP limit report
+            Parsed by mw1213
+            Cached time: 20160725140930
+            Cache expiry: 2592000
+            Dynamic content: false
+            CPU time usage: 0.179 seconds
+            Real time usage: 0.258 seconds
+            Preprocessor visited node count: 612/1000000
+            Preprocessor generated node count: 0/1500000
+            Post‐expand include size: 26718/2097152 bytes
+            Template argument size: 472/2097152 bytes
+            Highest expansion depth: 11/40
+            Expensive parser function count: 3/500
+            Lua time usage: 0.083/10.000 seconds
+            Lua memory usage: 2.94 MB/50 MB
+            Number of Wikibase entities loaded: 0-->
+
+            <!--
+            Transclusion expansion time report (%,ms,calls,template)
+            100.00%  199.277      1 - -total
+             32.50%   64.772      1 - Template:Citation_style
+             29.89%   59.559      1 - Template:Reflist
+             23.19%   46.210      2 - Template:Cite_book
+             22.76%   45.347      1 - Template:Ambox
+             17.00%   33.880      1 - Template:Citation_needed
+             14.46%   28.807      1 - Template:Fix
+              9.74%   19.413      1 - Template:CS-Trees
+              7.56%   15.073      1 - Template:Delink
+              7.53%   15.000      1 - Template:Navbox
+            -->
+
+            <!-- Saved in parser cache with key enwiki:pcache:idhash:577097-0!*!0!!en!4!* and timestamp 20160725140929 and revision id 731458964
+             -->
+            <noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>					<div class="printfooter">
+        Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Quadtree&amp;oldid=731458964">https://en.wikipedia.org/w/index.php?title=Quadtree&amp;oldid=731458964</a>"					</div>
+        <div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Trees_(data_structures)" title="Category:Trees (data structures)">Trees (data structures)</a></li><li><a href="/wiki/Category:Database_index_techniques" title="Category:Database index techniques">Database index techniques</a></li><li><a href="/wiki/Category:Geometric_data_structures" title="Category:Geometric data structures">Geometric data structures</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Wikipedia_references_cleanup_from_April_2015" title="Category:Wikipedia references cleanup from April 2015">Wikipedia references cleanup from April 2015</a></li><li><a href="/wiki/Category:All_articles_needing_references_cleanup" title="Category:All articles needing references cleanup">All articles needing references cleanup</a></li><li><a href="/wiki/Category:Articles_covered_by_WikiProject_Wikify_from_April_2015" title="Category:Articles covered by WikiProject Wikify from April 2015">Articles covered by WikiProject Wikify from April 2015</a></li><li><a href="/wiki/Category:All_articles_covered_by_WikiProject_Wikify" title="Category:All articles covered by WikiProject Wikify">All articles covered by WikiProject Wikify</a></li><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_June_2015" title="Category:Articles with unsourced statements from June 2015">Articles with unsourced statements from June 2015</a></li><li><a href="/wiki/Category:CS1_maint:_Multiple_names:_authors_list" title="Category:CS1 maint: Multiple names: authors list">CS1 maint: Multiple names: authors list</a></li></ul></div></div>				<div class="visualClear"></div>
+    </div>
+</div>
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+
+    <div id="mw-head">
+        <div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+            <h3 id="p-personal-label">Personal tools</h3>
+            <ul>
+                <li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Quadtree" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Quadtree" title="You're encouraged to log in; however, it's not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+        </div>
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+                <h3 id="p-namespaces-label">Namespaces</h3>
+                <ul>
+                    <li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Quadtree"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+                    <li  id="ca-talk"><span><a href="/wiki/Talk:Quadtree"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Talk</a></span></li>
+                </ul>
+            </div>
+            <div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+                <h3 id="p-variants-label">
+                    <span>Variants</span><a href="#"></a>
+                </h3>
+
+                <div class="menu">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+                <h3 id="p-views-label">Views</h3>
+                <ul>
+                    <li id="ca-view" class="selected"><span><a href="/wiki/Quadtree" >Read</a></span></li>
+                    <li id="ca-edit"><span><a href="/w/index.php?title=Quadtree&amp;action=edit"  title="Edit this page [e]" accesskey="e">Edit</a></span></li>
+                    <li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Quadtree&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+                </ul>
+            </div>
+            <div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+                <h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+                <div class="menu">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            <div id="p-search" role="search">
+                <h3>
+                    <label for="searchInput">Search</label>
+                </h3>
+
+                <form action="/w/index.php" id="searchform">
+                    <div id="simpleSearch">
+                        <input type="search" name="search" placeholder="Search" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="mw-panel">
+        <div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+        <div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+            <h3 id='p-navigation-label'>Navigation</h3>
+
+            <div class="body">
+                <ul>
+                    <li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li>					</ul>
+            </div>
+        </div>
+        <div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+            <h3 id='p-interaction-label'>Interaction</h3>
+
+            <div class="body">
+                <ul>
+                    <li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li>					</ul>
+            </div>
+        </div>
+        <div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+            <h3 id='p-tb-label'>Tools</h3>
+
+            <div class="body">
+                <ul>
+                    <li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Quadtree" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Quadtree" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Quadtree&amp;oldid=731458964" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Quadtree&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Q934791" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Quadtree&amp;id=731458964" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+            </div>
+        </div>
+        <div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+            <h3 id='p-coll-print_export-label'>Print/export</h3>
+
+            <div class="body">
+                <ul>
+                    <li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Quadtree">Create a book</a></li><li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Quadtree&amp;returnto=Quadtree&amp;oldid=731458964&amp;writer=rdf2latex">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Quadtree&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>					</ul>
+            </div>
+        </div>
+        <div class="portal" role="navigation" id='p-wikibase-otherprojects' aria-labelledby='p-wikibase-otherprojects-label'>
+            <h3 id='p-wikibase-otherprojects-label'>In other projects</h3>
+
+            <div class="body">
+                <ul>
+                    <li class="wb-otherproject-link wb-otherproject-commons"><a href="https://commons.wikimedia.org/wiki/Category:Quadtrees" hreflang="en">Wikimedia Commons</a></li>					</ul>
+            </div>
+        </div>
+        <div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+            <h3 id='p-lang-label'>Languages</h3>
+
+            <div class="body">
+                <ul>
+                    <li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Quatern%C3%A4rbaum" title="Quaternärbaum – German" lang="de" hreflang="de">Deutsch</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Quadtree" title="Quadtree – Spanish" lang="es" hreflang="es">Español</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%DA%86%D8%A7%D8%B1%D8%AF%D8%B1%D8%AE%D8%AA" title="چاردرخت – Persian" lang="fa" hreflang="fa">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Quadtree" title="Quadtree – French" lang="fr" hreflang="fr">Français</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Quadtree" title="Quadtree – Italian" lang="it" hreflang="it">Italiano</a></li><li class="interlanguage-link interwiki-ja"><a href="https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%88%86%E6%9C%A8" title="四分木 – Japanese" lang="ja" hreflang="ja">日本語</a></li><li class="interlanguage-link interwiki-pl"><a href="https://pl.wikipedia.org/wiki/Drzewo_czw%C3%B3rkowe" title="Drzewo czwórkowe – Polish" lang="pl" hreflang="pl">Polski</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D0%BE_%D0%BA%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D0%BD%D1%82%D0%BE%D0%B2" title="Дерево квадрантов – Russian" lang="ru" hreflang="ru">Русский</a></li><li class="interlanguage-link interwiki-sr"><a href="https://sr.wikipedia.org/wiki/Kvadratno_stablo" title="Kvadratno stablo – Serbian" lang="sr" hreflang="sr">Српски / srpski</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E5%9B%9B%E5%8F%89%E6%A0%91" title="四叉树 – Chinese" lang="zh" hreflang="zh">中文</a></li><li class="uls-p-lang-dummy"><a href="#"></a></li>					</ul>
+                <div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Q934791#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+        </div>
+    </div>
+</div>
+<div id="footer" role="contentinfo">
+    <ul id="footer-info">
+        <li id="footer-info-lastmod"> This page was last modified on 25 July 2016, at 14:09.</li>
+        <li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+            additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+    </ul>
+    <ul id="footer-places">
+        <li id="footer-places-privacy"><a href="https://wikimediafoundation.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+        <li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+        <li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+        <li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+        <li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+        <li id="footer-places-cookiestatement"><a href="https://wikimediafoundation.org/wiki/Cookie_statement">Cookie statement</a></li>
+        <li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Quadtree&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+    </ul>
+    <ul id="footer-icons" class="noprint">
+        <li id="footer-copyrightico">
+            <a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>						</li>
+        <li id="footer-poweredbyico">
+            <a href="//www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>						</li>
+    </ul>
+    <div style="clear:both"></div>
+</div>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","user":"ready"});mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.eventLogging.subscriber","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links","mmv.bootstrap.autostart","ext.visualEditor.targetLoader","ext.wikimediaEvents","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage","ext.centralNotice.startUp","ext.centralNotice.geoIP"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":58,"wgHostname":"mw1267"});});</script>
+</body>
+</html>

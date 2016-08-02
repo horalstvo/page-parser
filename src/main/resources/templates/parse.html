@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Parse URL</title>
+</head>
+<body>
+
+<div>
+    <h2>Select URL</h2>
+    <form action="#" th:action="@{/parse}" th:object="${url}" method="post">
+        <p>URL: <input type="text" th:field="*{url}"/></p>
+        <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+    </form>
+</div>
+<th:block th:if="${result != null}">
+    <div>
+        <h2>Parse result</h2>
+        <p>Title: <span th:text="${result.title}"></span></p>
+        <p>Version: <span th:text="${result.version}"></span></p>
+        <p>Headings:<br/>
+            H1: <span th:text="${result.headingsCountPerLevel.get(1)}"></span><br/>
+            H2: <span th:text="${result.headingsCountPerLevel.get(2)}"></span><br/>
+            H3: <span th:text="${result.headingsCountPerLevel.get(3)}"></span><br/>
+            H4: <span th:text="${result.headingsCountPerLevel.get(4)}"></span><br/>
+            H5: <span th:text="${result.headingsCountPerLevel.get(5)}"></span><br/>
+            H6: <span th:text="${result.headingsCountPerLevel.get(6)}"></span><br/>
+        </p>
+        <p>Internal links: <span th:text="${result.internalLinksCount}"></span></p>
+        <p>External links: <span th:text="${result.externalLinksCount}"></span></p>
+        <p>Inaccessible links: <span th:text="${result.inaccessibleLinksCount}"></span></p>
+        <p>Contains login: <span th:text="${result.containsLogin}"></span></p>
+    </div>
+</th:block>
+
+<th:block th:if="${error != null}">
+    <div>
+        <p style="color: red"><span th:text="${error}"></span></p>
+    </div>
+</th:block>
+
+</body>
+</html>
